@@ -1,6 +1,6 @@
 /*Square.css*/
 
-.Square-Input {
+.Square-Permenant {
   text-align: center;
   width : 30px;
   height: 30px;
@@ -8,6 +8,18 @@
   border-radius: 5px;
   padding: .1px;
   color: #d9480f;
+}
+
+.Square-Input {
+  text-align: center;
+  width : 30px;
+  height: 30px;
+  border: 2px solid #ffa94d;
+  border-radius: 5px;
+  padding: .1px;
+  color: rgba(13, 12, 11, 0.89);
+  font: 20px arial, sans-serif;
+  font-style: italic;
 }
 
 * {box-sizing: border-box;}

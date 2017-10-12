@@ -3,8 +3,13 @@
 import React, { Component } from 'react';
 import '../css/Puzzle.css';
 import Square from './Square';
-import { store } from '../Reducers/index';
 
+import { store } from '../Reducers/index';
+import { connect } from 'react-redux'
+
+import {
+  setSquareValue
+} from '../Actions/PuzzleActions';
 
 /**
  * the main display component. Displays a 9x9 grid of squares
@@ -25,13 +30,10 @@ class Puzzle extends Component {
    * @param {int} new value   
    **/
   _handleNewValue(id, newValue) {
-    
+    store.dispatch(setSquareValue(id, parseInt(newValue)));
   }
 
   render() {
-
-    console.log();
-
     let squares = [];
     for (let i = 0 ; i < 81 ; i += 9) {
       let subGrid = [];
@@ -61,4 +63,10 @@ class Puzzle extends Component {
   }
 }
 
-export default Puzzle;
+const mapStateToProps = state => {
+  return {
+    puzzle : state.puzzle
+  }
+}
+
+export default connect(mapStateToProps)(Puzzle);

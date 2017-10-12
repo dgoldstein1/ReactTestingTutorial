@@ -1,6 +1,6 @@
-// sudoku.js
+// puzzleValues.js
 
-// a complete sudoku puzzle in json
+// Initial values of puzzle
 
 export default {
   "0": {
