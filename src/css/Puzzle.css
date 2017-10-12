@@ -1,1 +1,17 @@
 /*Puzzle.css*/
+
+.puzzle {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  border: 2px solid #f76707;
+  background-color: #fff4e6;
+  z-index: 1;
+}
+
+.subGrid {
+  display: grid;
+  grid-template-columns: 30px 30px 30px;
+  border: 2px solid #f76707;
+  background-color: #fff4e6;
+  z-index: 1;
+}

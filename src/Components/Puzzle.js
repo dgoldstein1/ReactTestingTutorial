@@ -11,12 +11,23 @@ import Square from './Square';
 
 class Puzzle extends Component {
   render() {
+    let squares = [];
+    for (let i = 0 ; i < 81 ; i += 9) {
+      let subGrid = [];
+      for (let j = 0 ; j < 9 ; j ++) {
+        subGrid.push(<Square key={i + j}/>);
+      }
+      squares.push(subGrid);
+    }
+    let currSubGrid = 0;
     return (
-      <Square
-        callback={(newValue) => console.log(newValue)}
-        editable={true}
-        value={1}
-      />
+      <div className="puzzle">
+        {squares.map(subGrid => 
+          <div className="subGrid" key={currSubGrid += 1}>
+            {subGrid.map(el => el)}
+          </div>
+        )}
+      </div>
     );
   }
 }
