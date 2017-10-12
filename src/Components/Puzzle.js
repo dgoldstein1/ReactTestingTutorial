@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import '../css/Puzzle.css';
 import Square from './Square';
+import { store } from '../Reducers/index';
+
 
 /**
  * the main display component. Displays a 9x9 grid of squares
@@ -27,6 +29,9 @@ class Puzzle extends Component {
   }
 
   render() {
+
+    console.log(store.getState());
+
     let squares = [];
     for (let i = 0 ; i < 81 ; i += 9) {
       let subGrid = [];
