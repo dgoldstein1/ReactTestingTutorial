@@ -34,32 +34,48 @@ describe('Components', () => {
         );
       });
 
+      // PROBLEM 2 -- rendering of puzzle component
       it('submit button', () => {
-        // TODO
         expect(true);
       });
       it('gridlayout', () => {
-        // TODO
         expect(true);
       });
       it('all 80 boxes', () => {
-        // TODO
         expect(true);
       });
     });
 
     describe('handlers', () => {
       let wrapper = shallow(<Puzzle store={mockStore(defaultState)} />);
-      it('_handleNewValue ', () => {
-        let dispatchResult;
 
-        // TODO
-        expect(true);
+      // PROBLEM 4 -- testing handle new value function
+      describe("_handleNewValue",() => {
+        it('returns expected result ', () => {
+          expect(true);
+        });
       });
-      it('_handleSubmit', () => {
-
-        // TODO
-        expect(true);
+      // PROBLEM 5 -- testing handling submit
+      describe('_handleSubmit',() => {
+        let output = wrapper
+          .dive()
+          .instance()
+          ._handleSubmit();
+        it('checks that all boxes are filled', () => {
+          expect(true);
+        });
+        it("checks that each group of 9 squares contains 9 unique numbers",() => {
+          // TODO
+          expect(true);
+        });
+        it("checks that each row has 9 unique squares",() => {
+          // TODO
+          expect(true);
+        });
+        it("checks that each column has 9 unique squares",() => {
+          // TODO
+          expect(true);
+        });
       });
     });
   });

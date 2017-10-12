@@ -16,12 +16,15 @@ describe('Components', () => {
     editable: true
   };
 
+  // PROBLEM 1 -- testing rendering of <Square/>
   describe('render', () => {
     it('renders <input> tag', () => {
       // TODO
       expect(true);
     });
   });
+
+  // PROBLEM 3 -- testing handleValue Changed
   describe('_handleValueChanged', () => {
     let callBackValue, wrapper, _handleValueChanged;
     beforeEach(() => {
