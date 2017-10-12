@@ -12,6 +12,8 @@ import puzzle from '../Reducers/puzzleValues';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
+import defaultPuzzleSolution from '../Mocks/solution';
+
 configure({ adapter: new Adapter() });
 
 describe('Components', () => {
