@@ -30,7 +30,7 @@ class Puzzle extends Component {
 
   render() {
 
-    console.log(store.getState());
+    console.log();
 
     let squares = [];
     for (let i = 0 ; i < 81 ; i += 9) {
@@ -40,8 +40,8 @@ class Puzzle extends Component {
           <Square
             callback={this._handleNewValue}
             key={i + j}
-            editable={true}
-            value={i + j}
+            editable={store.getState().puzzle.values[i+j].editable}
+            value={store.getState().puzzle.values[i+j].value}
             id={i + j}
           />
         );
