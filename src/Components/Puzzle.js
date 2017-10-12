@@ -33,6 +33,14 @@ class Puzzle extends Component {
     store.dispatch(setSquareValue(id, parseInt(newValue)));
   }
 
+  /**
+   * handler for when user submits the end result. 
+   * If success, alerts true, if not alerts false   
+   **/
+  _handleSubmit() {
+    alert("Incorrect Submission");
+  }
+
   render() {
     let squares = [];
     for (let i = 0 ; i < 81 ; i += 9) {
@@ -52,12 +60,15 @@ class Puzzle extends Component {
     }
     let currSubGrid = 0;
     return (
-      <div className="puzzle">
-        {squares.map(subGrid => 
-          <div className="subGrid" key={currSubGrid += 1}>
-            {subGrid.map(el => el)}
-          </div>
-        )}
+      <div>
+        <button className="button" onClick={this._handleSubmit} name="button">Submit</button>
+        <div className="puzzle">
+          {squares.map(subGrid => 
+            <div className="subGrid" key={currSubGrid += 1}>
+              {subGrid.map(el => el)}
+            </div>
+          )}
+        </div>
       </div>
     );
   }
