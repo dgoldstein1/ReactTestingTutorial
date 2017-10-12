@@ -7,9 +7,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h2 className="App-title">Sudoku : Live by the Test, Die by the Test</h2>
+          <h2 className="App-title">
+            Sudoku : Live by the Test, Die by the Test
+          </h2>
         </header>
-        <Puzzle/>
+        <Puzzle />
       </div>
     );
   }
