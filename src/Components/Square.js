@@ -24,7 +24,7 @@ class Square extends Component {
   _handleValueChanged(testParam) {
     let val = testParam ? testParam : document.getElementById("square-input").value;
     if (isNaN(val) || val.length > 1 || val < 1) return undefined;
-    this.props.callback(val);
+    this.props.callback(this.props.id, val);
     return val;
   }
 
@@ -34,7 +34,7 @@ class Square extends Component {
         id={"square-input"}
         className="Square-Input"
         readOnly={!this.props.editable}
-        defaultValue={this.props.defaultValue ? this.props.defaultValue : ""}
+        defaultValue={this.props.value ? this.props.value : ""}
         maxLength={1}
         max={1}
         min={9}
@@ -45,6 +45,7 @@ class Square extends Component {
 }
 
 Square.propTypes = {
+  id : PropTypes.number.isRequired,
   callback : PropTypes.func.isRequired,
   editable : PropTypes.bool.isRequired,
   value : PropTypes.number

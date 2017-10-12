@@ -2,13 +2,12 @@
 
 .Square-Input {
   text-align: center;
-  width : 20px;
-  height: 20px;
+  width : 30px;
+  height: 30px;
   border: 2px solid #ffa94d;
   border-radius: 5px;
-  padding: 1em;
+  padding: .1px;
   color: #d9480f;
-  text-align: center;
 }
 
 * {box-sizing: border-box;}

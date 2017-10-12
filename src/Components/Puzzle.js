@@ -10,12 +10,36 @@ import Square from './Square';
  **/ 
 
 class Puzzle extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this._handleNewValue = this._handleNewValue.bind(this);
+  }
+
+  /**
+   * handler for when an input is keyed in 
+   * @param {int ID}
+   * @param {int} new value   
+   **/
+  _handleNewValue(id, newValue) {
+    
+  }
+
   render() {
     let squares = [];
     for (let i = 0 ; i < 81 ; i += 9) {
       let subGrid = [];
       for (let j = 0 ; j < 9 ; j ++) {
-        subGrid.push(<Square key={i + j}/>);
+        subGrid.push(
+          <Square
+            callback={this._handleNewValue}
+            key={i + j}
+            editable={true}
+            value={i + j}
+            id={i + j}
+          />
+        );
       }
       squares.push(subGrid);
     }

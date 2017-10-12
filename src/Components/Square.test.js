@@ -13,6 +13,7 @@ configure({ adapter: new Adapter() });
 describe("Components",() => {
 
   const defaultProps = {
+    id : -1,
     editable : true,
   };
 
@@ -31,7 +32,7 @@ describe("Components",() => {
     });
 
     let newProps = defaultProps;
-    defaultProps.callback = newValue => callBackValue = newValue;
+    defaultProps.callback = (id, newValue) => callBackValue = newValue;
 
     // positive tests
     it("accecpts numbers 1-9",() => {
