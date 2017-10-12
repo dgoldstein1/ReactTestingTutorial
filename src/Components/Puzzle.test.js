@@ -12,6 +12,8 @@ import puzzle from '../Reducers/puzzleValues';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
+import defaultPuzzleSolution from '../Mocks/solution';
+
 configure({ adapter: new Adapter() });
 
 describe('Components', () => {
@@ -59,7 +61,11 @@ describe('Components', () => {
     });
 
     describe('handlers', () => {
-      let wrapper = shallow(<Puzzle store={mockStore(defaultState)} />);
+
+      let wrapper;
+      beforeEach(() => {
+        wrapper = shallow(<Puzzle store={mockStore(defaultState)} />);
+      });
 
       // PROBLEM 4 -- testing handle new value function
       describe("_handleNewValue",() => {
@@ -75,17 +81,35 @@ describe('Components', () => {
         });
       });
       // PROBLEM 5 -- testing handling submit
-      describe('_handleSubmit',() => {
-        let output = wrapper
-          .dive()
-          .instance()
-          ._handleSubmit();
+      describe('_handleSubmit',() => {        
         it('checks that all boxes are filled', () => {
-          expect(true);
+          let newState = defaultState;
+          for (let i = 0 ; i < 80 ;i ++)
+            newState.puzzle.values[i].value = 1;
+          newState.puzzle.values[80].value = undefined;
+
+          wrapper = shallow(<Puzzle store={mockStore(defaultState)} />);
+          let output = wrapper
+            .dive()
+            .instance()
+            ._handleSubmit();
+          expect(output).toBe(undefined);
         });
         it("checks that each group of 9 squares contains 9 unique numbers",() => {
-          // TODO
-          expect(true);
+          let badSolution = {};
+          for (let i = 0 ; i < 80 ; i ++) { // copy over correct values
+            badSolution[i] = { value : defaultPuzzleSolution[i] }
+          }
+
+          badSolution[0].value = 1; // make the solution bad
+
+          let newState = defaultState;
+          wrapper = shallow(<Puzzle store={mockStore(defaultState)} />);
+          let output = wrapper
+            .dive()
+            .instance()
+            ._handleSubmit();
+          expect(output).toBe(undefined);
         });
         it("checks that each row has 9 unique squares",() => {
           // TODO

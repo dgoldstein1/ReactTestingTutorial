@@ -53,7 +53,7 @@ class Puzzle extends Component {
             callback={this._handleNewValue}
             key={i + j}
             editable={store.getState().puzzle.values[i + j].editable}
-            value={store.getState().puzzle.values[i + j].value}
+            value={i + j}
             id={i + j}
           />
         );
