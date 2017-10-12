@@ -4,7 +4,7 @@ import React from 'react';
 import Square from './Square';
 
 // setup file
-import { configure, shallow } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
@@ -19,7 +19,7 @@ describe("Components",() => {
 
   describe("render",() => {
     it("renders <input> tag",() => {
-      let wrapper = shallow(<Square {...defaultProps}/>);
+      let wrapper = mount(<Square {...defaultProps}/>);
       expect(wrapper.html().includes(` <input id="square-input" class="Square-Input"`));
     });
   });
@@ -27,7 +27,7 @@ describe("Components",() => {
     let callBackValue, wrapper, _handleValueChanged;
     beforeEach(() => {
       callBackValue = false;
-      wrapper = shallow(<Square {...defaultProps}/>);
+      wrapper = mount(<Square {...defaultProps}/>);
       _handleValueChanged = wrapper.instance()._handleValueChanged;
     });
 

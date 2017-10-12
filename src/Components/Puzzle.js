@@ -22,6 +22,7 @@ class Puzzle extends Component {
     super(props);
 
     this._handleNewValue = this._handleNewValue.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
   }
 
   /**
@@ -29,8 +30,10 @@ class Puzzle extends Component {
    * @param {int ID}
    * @param {int} new value   
    **/
-  _handleNewValue(id, newValue) {
-    store.dispatch(setSquareValue(id, parseInt(newValue)));
+  _handleNewValue(id, newValue, testParams, testing=false) {
+    let dispatch = store.dispatch;
+    if (testing === true) dispatch = testParams;
+    dispatch(setSquareValue(id, parseInt(newValue)));
   }
 
   /**
@@ -38,6 +41,8 @@ class Puzzle extends Component {
    * If success, alerts true, if not alerts false   
    **/
   _handleSubmit() {
+
+    // TODO
     alert("Incorrect Submission");
   }
 
