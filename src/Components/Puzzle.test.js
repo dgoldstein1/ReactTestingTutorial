@@ -34,6 +34,7 @@ describe('Components', () => {
         );
       });
 
+      // PROBLEM 2 -- rendering of puzzle component
       it('submit button', () => {
         expect(
           wrapper
@@ -59,22 +60,41 @@ describe('Components', () => {
 
     describe('handlers', () => {
       let wrapper = shallow(<Puzzle store={mockStore(defaultState)} />);
-      it('_handleNewValue ', () => {
-        let dispatchResult;
-        wrapper
-          .dive()
-          .instance()
-          ._handleNewValue(10, 15, a => (dispatchResult = a), true);
-        expect(dispatchResult.type).toBe('SET_SQUARE_VALUE');
-        expect(dispatchResult.id).toBe(10);
-        expect(dispatchResult.newValue).toBe(15);
+
+      // PROBLEM 4 -- testing handle new value function
+      describe("_handleNewValue",() => {
+        it('returns expected result ', () => {
+          let dispatchResult;
+          wrapper
+            .dive()
+            .instance()
+            ._handleNewValue(10, 15, a => (dispatchResult = a), true);
+          expect(dispatchResult.type).toBe('SET_SQUARE_VALUE');
+          expect(dispatchResult.id).toBe(10);
+          expect(dispatchResult.newValue).toBe(15);
+        });
       });
-      it('_handleSubmit', () => {
+      // PROBLEM 5 -- testing handling submit
+      describe('_handleSubmit',() => {
         let output = wrapper
           .dive()
           .instance()
           ._handleSubmit();
-        expect(output).toBe(undefined);
+        it('checks that all boxes are filled', () => {
+          expect(true);
+        });
+        it("checks that each group of 9 squares contains 9 unique numbers",() => {
+          // TODO
+          expect(true);
+        });
+        it("checks that each row has 9 unique squares",() => {
+          // TODO
+          expect(true);
+        });
+        it("checks that each column has 9 unique squares",() => {
+          // TODO
+          expect(true);
+        });
       });
     });
   });

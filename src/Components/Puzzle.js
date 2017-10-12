@@ -39,7 +39,8 @@ class Puzzle extends Component {
    **/
   _handleSubmit() {
     // TODO
-    alert('Incorrect Submission');
+    // PROBLEM 5 -- testing handling submit
+    alert('Submit Button Pushed');
   }
 
   render() {

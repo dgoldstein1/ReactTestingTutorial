@@ -16,6 +16,7 @@ describe('Components', () => {
     editable: true
   };
 
+  // PROBLEM 1 -- testing rendering of <Square/>
   describe('render', () => {
     it('renders <input> tag', () => {
       let wrapper = mount(<Square {...defaultProps} />);
@@ -26,6 +27,8 @@ describe('Components', () => {
       );
     });
   });
+
+  // PROBLEM 3 -- testing handleValue Changed
   describe('_handleValueChanged', () => {
     let callBackValue, wrapper, _handleValueChanged;
     beforeEach(() => {
