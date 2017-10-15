@@ -40,6 +40,8 @@ class Puzzle extends Component {
   _handleSubmit() {
     // TODO
     // PROBLEM 5 -- testing handling submit
+
+    // As a hint, look at how the row and col cell IDs translate to the IDs of the grid.
     alert('Incorrect Submission');
   }
 
