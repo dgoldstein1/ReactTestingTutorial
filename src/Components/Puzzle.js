@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import '../css/Puzzle.css';
 import Square from './Square';
 
-import { store } from '../Reducers/index';
 import { connect } from 'react-redux';
 
 import { setSquareValue } from '../Actions/PuzzleActions';
@@ -28,19 +27,37 @@ class Puzzle extends Component {
    * @param {int} new value   
    **/
   _handleNewValue(id, newValue, testParams, testing = false) {
-    let dispatch = store.dispatch;
+    let dispatch = this.props.dispatch;
     if (testing === true) dispatch = testParams;
     dispatch(setSquareValue(id, parseInt(newValue)));
   }
 
   /**
    * handler for when user submits the end result. 
+   * PROBLEM 5 -- testing handling submit
    * If success, alerts true, if not alerts false   
    **/
   _handleSubmit() {
-    // TODO
-    // PROBLEM 5 -- testing handling submit
-    alert('Submit Button Pushed');
+    const puzzleValues = this.props.puzzle.values;
+
+    // check that all values are filled and copy over to array
+    let puzzleValueArray = [];
+    for (let i in puzzleValues) {
+      if (puzzleValues[i].value === undefined) return false;
+      puzzleValueArray.push(puzzleValues[i].value);
+    }
+
+    // internal helper to check for duplicates in array
+    let hasDuplicates = array => (new Set(array)).size !== array.length;
+
+    // for (let i = 0 ; i < puzzleValueArray.length ; i = i + 9) {
+    //   console.log(puzzleValueArray.slice(i,i+9));
+    //   if (hasDuplicates(puzzleValueArray.slice(i,i+9))) return false;
+    // }
+    
+    // check that each subgrid has unique values
+  
+    alert('success!');
 
     return true; // valid solution
   }
@@ -54,8 +71,8 @@ class Puzzle extends Component {
           <Square
             callback={this._handleNewValue}
             key={i + j}
-            editable={store.getState().puzzle.values[i + j].editable}
-            value={i + j}
+            editable={this.props.puzzle.values[i + j].editable}
+            value={this.props.puzzle.values[i + j].value}
             id={i + j}
           />
         );

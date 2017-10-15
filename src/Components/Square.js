@@ -50,7 +50,7 @@ class Square extends Component {
 Square.propTypes = {
   id: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired,
-  editable: PropTypes.bool.isRequired,
+  editable: PropTypes.bool,
   value: PropTypes.number
 };
 
