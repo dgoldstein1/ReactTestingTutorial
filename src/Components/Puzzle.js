@@ -48,33 +48,29 @@ class Puzzle extends Component {
     }
 
     // internal helper to check for duplicates in array
-    let hasDuplicates = array => (new Set(array)).size !== array.length;
+    let hasDuplicates = array => new Set(array).size !== array.length;
 
-    for (let i = 0 ; i < puzzleValueArray.length ; i += 9) {      
-      if (hasDuplicates(puzzleValueArray.slice(i,i+9))) return false;
+    for (let i = 0; i < puzzleValueArray.length; i += 9) {
+      if (hasDuplicates(puzzleValueArray.slice(i, i + 9))) return false;
     }
 
-
     // the trick here is that each cell # is equal to the row id + col id
-    let rows = [0,1,2,9,10,11,18,19,20];
-    let cols = [0,3,6,27,30,33,54,57,60];
+    let rows = [0, 1, 2, 9, 10, 11, 18, 19, 20];
+    let cols = [0, 3, 6, 27, 30, 33, 54, 57, 60];
 
     let tempCols, tempRows;
-    for (let row = 0 ; row < 9 ; row++) {
+    for (let row = 0; row < 9; row++) {
       tempCols = [];
       tempRows = [];
-      for (let col = 0 ; col < 9 ; col ++) {
+      for (let col = 0; col < 9; col++) {
         tempCols.push(puzzleValueArray[rows[row] + cols[col]]); // check that all cols are unique
         tempRows.push(puzzleValueArray[cols[row] + rows[col]]); // check that all rows are unique
       }
       if (hasDuplicates(tempCols) || hasDuplicates(tempRows)) return false;
     }
 
-
-    
-
     // check that each subgrid has unique values
-  
+
     alert('success!');
 
     return true; // valid solution
