@@ -81,7 +81,22 @@ describe('Components', () => {
         });
       });
       // PROBLEM 5 -- testing handling submit
-      describe('_handleSubmit',() => {        
+      describe('_handleSubmit',() => {  
+        it("accepts a valid solution ",() => {
+
+          let newState = JSON.parse(JSON.stringify(defaultState));
+          newState.puzzle.values = defaultPuzzleSolution;
+
+          wrapper = shallow(<Puzzle store={mockStore(newState)}/>)
+
+          let output = wrapper
+            .dive()
+            .instance()
+            ._handleSubmit();
+
+          expect(output).toBe(true);
+
+        });
         it('checks that all boxes are filled', () => {
           let newState = defaultState;
           for (let i = 0 ; i < 80 ;i ++)
@@ -93,7 +108,7 @@ describe('Components', () => {
             .dive()
             .instance()
             ._handleSubmit();
-          expect(output).toBe(undefined);
+          expect(output).toBe(false);
         });
         it("checks that each group of 9 squares contains 9 unique numbers",() => {
           let badSolution = {};
@@ -109,15 +124,45 @@ describe('Components', () => {
             .dive()
             .instance()
             ._handleSubmit();
-          expect(output).toBe(undefined);
+          expect(output).toBe(false);
         });
         it("checks that each row has 9 unique squares",() => {
-          // TODO
-          expect(true);
+          
+          let badSolution = {};
+          for (let i = 0 ; i < 80 ; i ++) { // copy over correct values
+            badSolution[i] = { value : defaultPuzzleSolution[i] }
+          }
+
+          // set first and second square to same value
+          badSolution[0].value = 1;
+          badSolution[1].value = 1;
+
+          let newState = defaultState;
+          wrapper = shallow(<Puzzle store={mockStore(defaultState)} />);
+          let output = wrapper
+            .dive()
+            .instance()
+            ._handleSubmit();
+          expect(output).toBe(false);        
         });
         it("checks that each column has 9 unique squares",() => {
-          // TODO
-          expect(true);
+          
+          let badSolution = {};
+          for (let i = 0 ; i < 80 ; i ++) { // copy over correct values
+            badSolution[i] = { value : defaultPuzzleSolution[i] }
+          }
+
+          // set first and 4th value to same value
+          badSolution[0].value = 1;
+          badSolution[3].value = 1;
+
+          let newState = defaultState;
+          wrapper = shallow(<Puzzle store={mockStore(defaultState)} />);
+          let output = wrapper
+            .dive()
+            .instance()
+            ._handleSubmit();
+          expect(output).toBe(false);
         });
       });
     });

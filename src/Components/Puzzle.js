@@ -41,6 +41,8 @@ class Puzzle extends Component {
     // TODO
     // PROBLEM 5 -- testing handling submit
     alert('Submit Button Pushed');
+
+    return true; // valid solution
   }
 
   render() {
