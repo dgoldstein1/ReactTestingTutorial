@@ -27,4 +27,4 @@ In order to finish the project, you will have to finish the stubbed out method `
 
 Be warned, I've structured the data in a way that makes it tricky to check if it's completed, you may need to import `lodash` or other javascript libraries to simplify.
 
-If you get really stuck, the code is available on the `completed-code` branch.
+If you get really stuck, the code is available on the `completed-code` branch. As a hint, look at how the row and col cell IDs translate to the IDs of the grid.

@@ -109,11 +109,15 @@ describe('Components', () => {
         });
         it("checks that each group of 9 squares contains 9 unique numbers",() => {
           let newState = JSON.parse(JSON.stringify(defaultState));
-          newState.puzzle.values = defaultPuzzleSolution;
+
+          newState.puzzle.values = {};
+          for (let i = 0 ; i <= 80 ; i ++) {
+            newState.puzzle.values[i] = {value : i };
+          }          
           newState.puzzle.values[0] = { value : 1};
           newState.puzzle.values[5] = { value : 1};
-          wrapper = shallow(<Puzzle store={mockStore(newState)} />);
 
+          wrapper = shallow(<Puzzle store={mockStore(newState)} />);
 
           let output = wrapper
             .dive()
@@ -122,11 +126,12 @@ describe('Components', () => {
           expect(output).toBe(false);
 
         });
-        it.only("checks that each row has 9 unique squares",() => {
+        it("checks that each row has 9 unique squares",() => {
           let newState = JSON.parse(JSON.stringify(defaultState));
-
-          newState.puzzle.values = defaultPuzzleSolution;
-          newState.puzzle.values[0] = { value : 1};
+          newState.puzzle.values = {};
+          for (let i = 0 ; i <= 80 ; i ++) {
+            newState.puzzle.values[i] = {value : i };
+          }
           newState.puzzle.values[9] = { value : 1};
           wrapper = shallow(<Puzzle store={mockStore(newState)} />);
           let output = wrapper
@@ -134,18 +139,22 @@ describe('Components', () => {
             .instance()
             ._handleSubmit();
           expect(output).toBe(false);
+
         });
         it("checks that each column has 9 unique squares",() => {
           let newState = JSON.parse(JSON.stringify(defaultState));
-          newState.puzzle.values = defaultPuzzleSolution;
-          newState.puzzle.values[0] = { value : 1};
-          newState.puzzle.values[27] = { value : 1};
+          newState.puzzle.values = {};
+          for (let i = 0 ; i <= 80 ; i ++) {
+            newState.puzzle.values[i] = {value : i };
+          }
+          newState.puzzle.values[8] = { value : 1};
           wrapper = shallow(<Puzzle store={mockStore(newState)} />);
           let output = wrapper
             .dive()
             .instance()
             ._handleSubmit();
           expect(output).toBe(false);
+
         });
       });
     });
