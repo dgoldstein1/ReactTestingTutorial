@@ -26,7 +26,7 @@ class Square extends Component {
       testing === true
         ? testParam
         : document.getElementById('square-input' + this.props.id).value;
-    if (isNaN(val) || val.length > 1 || val < 1) return undefined;
+    if (isNaN(val) || val.length > 1 || val < 1 || val > 9) return undefined;
     this.props.callback(this.props.id, val);
     return val;
   }
