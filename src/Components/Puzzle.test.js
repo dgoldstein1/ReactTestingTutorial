@@ -54,6 +54,13 @@ describe('Components', () => {
       // PROBLEM 4 -- testing handle new value function
       describe("_handleNewValue",() => {
         it('returns expected result ', () => {
+          // let dispatchResult;
+          // wrapper
+          //   .dive()
+          //   .instance()
+          //   ._handleNewValue(XX, XX, a => (dispatchResult = a), true);
+
+
           expect(true);
         });
       });
