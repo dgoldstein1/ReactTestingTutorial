@@ -3,11 +3,6 @@
 // solution to default puzzle
 
 export default 
-  // solution.js
-
-// solution to default puzzle
-
-export default 
 {
   "0": {
     "editable": false,
