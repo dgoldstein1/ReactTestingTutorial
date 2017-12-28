@@ -97,3 +97,11 @@ b) Write the actual function `_handleSubmit()`. This is what happens when a user
 Note -- if the above tests were beginner level, this problem is upper intermediate. I've structured the data in a way that makes it tricky to check if it's completed, you may need to import `lodash` or other javascript libraries to simplify, although my solution does not use any dependencies.
 
 If you get really stuck, the code is available on the `completed-code` branch. As a hint, look at how the row and col cell IDs translate to the IDs of the grid.
+
+## Authors
+
+* **David Goldstein** - [See More Work](https://david-goldstein.updog.co/#)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
