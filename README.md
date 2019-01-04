@@ -100,7 +100,7 @@ If you get really stuck, the code is available on the `completed-code` branch. A
 
 ## Authors
 
-* **David Goldstein** - [See More Work](https://david-goldstein.updog.co/#)
+* **David Goldstein** - [See More Work](http://davidcharlesgoldstein.com/github-react-testing-tutorial)
 
 ## License
 
